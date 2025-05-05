@@ -1,0 +1,510 @@
+body {
+    background-color: white;
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #FDFBD4;
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    justify-items: center;
+    padding: 10px 20px;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1;
+    color: #4B3621;
+}
+header .logoimg{
+    width: 100px;
+    border-radius: 100px;
+    border: 2px solid #4B3621;
+}
+
+header a {
+    color: #4B3621;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 20px;
+    font-weight: bolder;
+    transition: 0.9s ease;
+}
+
+header a:hover {
+    color: #2c001e;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid gold;
+    text-shadow: 0 0 3px gold, 0 0 2px white;
+}
+
+header input.srch {
+ padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    margin: 0 10px;
+    width: 200px;
+    font-size: 1rem;
+    background-color: white;
+    color: black;
+    border: 1px solid white;
+}
+
+
+.srch {
+    margin-left: 80px;
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+    border-top: none;
+    border-bottom: 1px solid white;
+    border-left: none;
+    border-right: none;
+    border: none;
+    outline: none;
+}
+.srch:hover {
+    border: 3px solid black;
+}
+
+.srch::placeholder {
+    color: #4B3621;
+    text-transform: capitalize;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    header input.srch {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+.product-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #FDFBD4;
+    border: 2px solid #4B3621
+}
+@media (max-width: 768px) {
+    .product-items {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.product {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    padding: 10px;
+    width: 240px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+
+.product img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.product h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.product p {
+    font-size: 1rem;
+    color: #555;
+    margin: 5px 0;
+}
+
+.product a {
+    color: #007bff;
+    text-decoration: none;
+    margin: 10px 0;
+}
+
+.add-to-cart {
+    background-color: #4B3621;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin-top: auto;
+}
+
+.add-to-cart:hover {
+    background-color: #FDFBD4;
+    color: #4B3621;
+}
+
+footer {
+    background-color: #121212;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+.dashboard-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: auto;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+p{
+    font-family: Arial;
+    font-weight: bolder;
+}
+a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: bolder;
+}
+
+.neon-welcome-container {
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: #FDFBD4; /* Dark background for neon effect */
+  border: 1px solid black;
+  margin-right: 50px;
+  margin-bottom: 20px;
+}
+
+.neon-welcome-text {
+    display: inline-block;
+    color: #4B3621; /* Neon cyan color */
+    font-size: 2em;
+    color: #4B3621;
+    text-transform: uppercase;
+    animation: neon-scroll 12s linear infinite; /* Adjust duration as needed */
+}
+
+@keyframes neon-scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+#search-results {
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background-color: #4B3621;
+    border: 3px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none;
+    color: white;
+}
+
+#search-results ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#search-results li {
+    padding: 8px 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: 0.5sec ease;
+}
+
+#search-results li:last-child {
+    border-bottom: none;
+}
+
+#search-results li:hover {
+    background-color: white;
+    color: #4B3621;
+}
+
+.no-results {
+    padding: 10px;
+    text-align: center;
+    color: #ff0000;
+}
+
+.logo {
+    color: white;
+}
+
+
+@media (max-width: 768px) {
+    .srch {
+        width: 100%;
+        margin-left: 0;
+}
+}
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.signup {
+    margin: 30px;
+    color: white;
+    font-weight: bolder;
+    background-color: #FDFBD4;
+    width: 140px;
+    height: 40px;
+    text-align: center;
+    border-radius: 20px;
+    transition: 1.5s ease;
+}
+
+.signup:hover {
+    color: white;
+    background-color: white;
+}
+
+.img {
+    justify-content: center;
+    width: 1200px;
+    margin-left: 50px;
+    height: 370px;
+    display: flex;
+    border-radius: 20px;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .img {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.h1 {
+    color: gold;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.imgcontent {
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .imgcontent {
+        width: 95%;
+    }
+}
+
+.img {
+    width: 100%;
+    height: 370px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.imgcontent h1,
+.imgcontent h2,
+.imgcontent p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    width: 90%;
+}
+
+.imgcontent h1 {
+    top: 20%;
+    color: gold;
+    letter-spacing: 1px;
+}
+
+.imgcontent h2 {
+    top: 30%;
+    color: gold;
+    letter-spacing: 1px;
+}
+
+.imgcontent p {
+    top: 50%;
+    font-size: 16px;
+    color: gold;
+    letter-spacing: 1px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    padding: 30px;
+    font-family: Arial;
+    font-size: larger;
+    margin-left: 20px;
+    transition: 0.5s ease;
+}
+
+@media (max-width: 768px) {
+    a {
+        padding: 10px;
+        margin: 5px 0;
+        display: block;
+        text-align: center;
+    }
+}
+
+a:hover {
+    color: black;
+    text-decoration: underline;
+    background-color: #ffff;
+    height: 30px;
+}
+
+.product-items {
+    border: 1px solid #4d3601;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+    .product-items {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.product {
+    background-color: #ffff;
+    padding: 15px;
+    width: 200px;
+    margin: 10px;
+    text-align: center;
+    transition: 0.2s ease;
+}
+
+.product:hover {
+    border: 2px solid black;
+}
+
+.product img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 5px;
+}
+
+footer {
+    text-align: center;
+    background-color: #FDFBD4;
+       color: #4B3621;
+}
+
+.fash{
+    border: 2px solid black;
+}
+#floating-whatsapp {
+    position: fixed;
+    bottom: 30px; /* Adjust vertical position */
+    right: 30px; /* Adjust horizontal position */
+    z-index: 999; /* Ensure it stays on top of other content */
+    cursor: pointer;
+    /* Add any other desired styling */
+    animation: bounce 0.4s infinite alternate; /* Apply the bounce animation */
+}
+
+#floating-whatsapp img {
+    width: 60px; /* Adjust icon size */
+    height: auto;
+}
+
+/* Optional: Add a subtle hover effect */
+#floating-whatsapp:hover {
+    opacity: 0.8;
+}
+
+/* Keyframes for the bouncing animation */
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px); /* Adjust bounce height */
+    }
+}
+.cartlink{
+    text-align: center;
+    background-color: #ff0000;
+}
+
+#floating-cart {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#floating-cart a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
+#floating-cart img {
+    width: 30px;
+    height: 30px;
+}

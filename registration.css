@@ -1,0 +1,146 @@
+@media (max-width: 480px) {
+    .container {
+        width: 90%;
+        margin: 50px auto;
+        padding: 15px;
+    }
+
+    .register-btn {
+        width: 100%; /* Make the button full width on small screens */
+        font-size: medium;
+    }
+
+    input {
+        width: 100%;
+    }
+}
+
+.container, .dashboard {
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    background: transparent;
+    box-shadow: 0px 0px 10px white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+input{
+    display: block;
+    width: 90%;
+    margin: 10px 0;
+    padding: 10px;
+    padding-left: 10px;
+}
+body {
+    /* Keep your original gradient */
+    background-image: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(255, 255, 255, 0.05) 10px, /* Very subtle white */
+        rgba(255, 255, 255, 0.05) 20px
+    );
+    /* Add a background color!  This is KEY */
+    background-color: #4B3621; /* Or any color you like */
+
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-btn {
+    border: none;
+    cursor: pointer;
+    font-size: 17px;
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+
+    width: 50%; /* Keep this for larger screens if you prefer */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #4B3621;
+    text-align: center;
+}
+
+.register-btn:hover {
+    background-color: #FDFBD4;
+    color: #4B3621;
+    box-shadow: 0px 0px 15px white;
+}
+.back{
+    text-decoration: none;
+    color: #FDFBD4;
+    font-size: 18px
+}
+.back:hover{
+color: white;
+font-size: 19px;
+}
+.sign{
+    color: white;
+    text-decoration: none;
+    font-size: 17px
+}
+.sign:hover{
+    color: #FDFBD4;
+    font-size: 18px;
+}
+.register{
+    color: #FDFBD4;
+    font-family: Arial;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+.button{
+    display: block;
+    width: 90%;
+    margin: 10px 0;
+    padding: 10px;
+    padding-left: 10px
+}
+.fname{
+background: transparent;
+box-shadow: 0px 0px 10px #FDFBD4;
+border-radius: none;
+border-top: none;
+border-left: none;
+border-right: none;
+border-bottom: 2px solid white;
+color: #FDFBD4;
+outline: none;
+}
+.pass{
+    background: transparent;
+    box-shadow: 0px 0px 10px #FDFBD4;
+    border-radius: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid white;
+    color: #FDFBD4;
+    outline: none;
+}
+::placeholder{
+    color: #FDFBD4;
+}
+.email{
+    background: transparent;
+    box-shadow: 0px 0px 10px #FDFBD4;
+    border-radius: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid white;
+    color: #FDFBD4;
+    outline: none;
+}
+

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELLABLINGS FASHION BLOG</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+    </style>
+</head>
+<body>    
+    <header>
+        <div class="header">
+            <img class="logoimg" src="WhatsApp Image 2025-05-04 at 00.25.43.jpeg" alt="logo">
+            <h3 class="logo">ELLABLINGS</h3>
+            <a class="fash" href="fashion.html">FASHION BLOG</a>
+            <a href="cloth.html">CLOTH</a>
+            <input class="srch" type="search" placeholder="Search your favourite....">
+            <a href="rings.html">RINGS</a>
+            <a href="watches.html">WATCHES</a>
+            <a href="dashboard.php">BACK TO DASHBOARD</a>
+        </div>
+    </header>
+    <div id="search-results">
+        <ul></ul>
+        <p class="no-results" style="display: none;">No results found</p>
+    </div>
+    <div class="dashboard-container">
+        <div class="neon-welcome-container">
+            <p class="neon-welcome-text">WELCOME TO our fashion BLOG. ELLABLINGS:WHERE EVERY PIECE OF JEWELRY FIT FOR ROYALTY</p>
+        </div>
+        <h1>OUR BLOG</h1>
+    <div class="product-items">
+        <div class="product" data-name="HOW TO USE JEWELRIES" data-url="product_details.html?product=smart_homes">
+            <img src="ring.jpeg" alt="JEWELRY">
+            <h3>HOW TO USE JEWELRIES</h3>
+            <a href="#">READ MORE</a>
+        </div>
+        <div class="product" data-name="HOW TO USE JEWELRIES" data-url="product_details.html?product=smart_homes">
+            <img src="ring.jpeg" alt="JEWELRY">
+            <h3>HOW TO USE JEWELRIES</h3>
+            <a href="#">READ MORE</a>
+        </div>
+        <div class="product" data-name="HOW TO USE JEWELRIES" data-url="product_details.html?product=smart_homes">
+            <img src="ring.jpeg" alt="JEWELRY">
+            <h3>HOW TO USE JEWELRIES</h3>
+            <a href="#">READ MORE</a>
+        </div>
+        <div class="product" data-name="HOW TO USE JEWELRIES" data-url="product_details.html?product=smart_homes">
+            <img src="ring.jpeg" alt="JEWELRY">
+            <h3>HOW TO USE JEWELRIES</h3>
+            <a href="#">READ MORE</a>
+        </div>
+        <div class="product" data-name="HOW TO USE JEWELRIES" data-url="product_details.html?product=smart_homes">
+            <img src="ring.jpeg" alt="JEWELRY">
+            <h3>HOW TO USE JEWELRIES</h3>
+            <a href="#">READ MORE</a>
+        </div>
+        <div class="product" data-name="HOW TO USE JEWELRIES" data-url="product_details.html?product=smart_homes">
+            <img src="ring.jpeg" alt="JEWELRY">
+            <h3>HOW TO USE JEWELRIES</h3>
+            <a href="#">READ MORE</a>
+        </div>
+        <div class="product" data-name="HOW TO USE JEWELRIES" data-url="product_details.html?product=smart_homes">
+            <img src="ring.jpeg" alt="JEWELRY">
+            <h3>HOW TO USE JEWELRIES</h3>
+            <a href="#">READ MORE</a>
+        </div>
+        <div class="product" data-name="HOW TO USE JEWELRIES" data-url="product_details.html?product=smart_homes">
+            <img src="ring.jpeg" alt="JEWELRY">
+            <h3>HOW TO USE JEWELRIES</h3>
+            <a href="#">READ MORE</a>
+        </div>
+        <div class="product" data-name="HOW TO USE JEWELRIES" data-url="product_details.html?product=smart_homes">
+            <img src="ring.jpeg" alt="JEWELRY">
+            <h3>HOW TO USE JEWELRIES</h3>
+            <a href="#">READ MORE</a>
+        </div>
+        <div id="floating-whatsapp">
+            <a href="form.html" target="_blank">
+                <img src="whatapp icon.jpg" alt="WhatsApp Contact Form">
+            </a>
+        </div>
+        <div class="product" data-name="HOW TO USE JEWELRIES" data-url="product_details.html?product=smart_homes">
+            <img src="ring.jpeg" alt="JEWELRY">
+            <h3>HOW TO USE JEWELRIES</h3>
+            <a href="#">READ MORE</a>
+        </div>
+    </div>
+    <footer><p>STAY UPDATED WITH ELLABLINGS</p>
+        &COPY; ELLABLINGS
+    </footer>
+    <script>
+        const searchInput = document.querySelector('.srch');
+        const productItems = document.querySelectorAll('.product');
+        const searchResults = document.getElementById('search-results');
+        const resultsList = searchResults.querySelector('ul');
+        const noResultsMessage = searchResults.querySelector('.no-results');
+
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            let matchingProducts = [];
+
+            productItems.forEach(product => {
+                const productName = product.getAttribute('data-name').toLowerCase();
+                if (productName.includes(searchTerm)) {
+                    matchingProducts.push(product);
+                }
+            });
+
+            resultsList.innerHTML = '';
+            if (matchingProducts.length > 0) {
+                matchingProducts.forEach(product => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = product.getAttribute('data-name');
+                    listItem.dataset.url = product.getAttribute('data-url');
+                    listItem.addEventListener('click', () => {
+                        const productUrl = listItem.dataset.url;
+                        if (productUrl) {
+                            window.location.href = productUrl;
+                        }
+                        resultsList.innerHTML = '';
+                        searchResults.style.display = 'none';
+                        searchInput.value = '';
+                    });
+                    resultsList.appendChild(listItem);
+                });
+                searchResults.style.display = 'block';
+                noResultsMessage.style.display = 'none';
+            } else {
+                searchResults.style.display = 'none';
+                noResultsMessage.style.display = 'block';
+            }
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!searchResults.contains(event.target) && event.target !== searchInput) {
+                searchResults.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

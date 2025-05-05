@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Inquiry Form</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        textarea {
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        button[type="submit"] {
+            background-color: #25D366; /* WhatsApp Green */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button[type="submit"]:hover {
+            background-color: #128C7E;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <img class="logoimg" src="WhatsApp Image 2025-05-04 at 00.25.43.jpeg" alt="logo">
+            <h3 class="logo">ELLABLINGS</h3>
+            <a class="fash" href="fashion.html">FASHION BLOG</a>
+            <a href="cloth.html">CLOTH</a>
+            <input class="srch" type="search" placeholder="Search your favourite....">
+            <a href="rings.html">RINGS</a>
+            <a href="watches.html">WATCHES</a>
+            <a href="dashboard.php">BACK TO DASHBOARD</a>
+            <div style="position: relative;">
+                <a href="cart.html" style="text-decoration: none; color: black;">
+                    <img src="cart-icon.png" alt="Cart" width="30" height="30">
+                    <span id="cart-item-count" style="position: absolute; top: -5px; right: -5px; background-color: red; color: white; border-radius: 50%; padding: 5px 8px; font-size: 12px;">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <h2>Send us a WhatsApp Inquiry</h2>
+    <form id="whatsappForm">
+        <div>
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+            <label for="email">Your Email (Optional):</label>
+            <input type="text" id="email" name="email">
+        </div>
+        <div>
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit">Send via WhatsApp</button>
+    </form>
+    <script>
+        document.getElementById('whatsappForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // --- START OF CUSTOMIZATION SECTION ---
+            const yourWhatsAppNumber = "+2347038111401"; // <--- **YOUR WHATSAPP NUMBER**
+            // --- END OF CUSTOMIZATION SECTION ---
+
+            const name = encodeURIComponent(document.getElementById('name').value);
+            const email = encodeURIComponent(document.getElementById('email').value);
+            const message = encodeURIComponent(document.getElementById('message').value);
+
+            let whatsappMessage = `New Inquiry:\nName: ${name}`;
+            if (email) {
+                whatsappMessage += `\nEmail: ${email}`;
+            }
+            whatsappMessage += `\nMessage: ${message}`;
+
+            const whatsappURL = `https://wa.me/${yourWhatsAppNumber}?text=${whatsappMessage}`;
+
+            window.open(whatsappURL, '_blank');
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+c.neon-welcome-container {
+    color: #0ff;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;

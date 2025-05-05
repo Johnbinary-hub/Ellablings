@@ -1,0 +1,70 @@
+body {
+    font-family: sans-serif;
+    background-color: rgba(68, 20, 156, 0.63);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.dashboard-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    height: auto;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.neon-welcome-container {
+    background-color: #222;
+    color: #0ff;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+p{
+    font-family: Arial;
+    font-weight: bolder;
+}
+.neon-welcome-text {
+    font-size: 1.5em;
+    text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+    text-transform: uppercase;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: bolder;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+.neon-welcome-container {
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: #222; /* Dark background for neon effect */
+    padding: 10px;
+}
+
+.neon-welcome-text {
+    display: inline-block;
+    color: #0ff; /* Neon cyan color */
+    font-size: 2em;
+    text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff, 0 0 20px #0ff, 0 0 25px #0ff;
+    animation: neon-scroll 10s linear infinite; /* Adjust duration as needed */
+}
+
+@keyframes neon-scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}

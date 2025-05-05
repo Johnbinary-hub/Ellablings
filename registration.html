@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRATION</title>
+    <link rel="stylesheet" href="registration.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="register">REGISTER</h2>
+        <form id="registrationForm" method="post" action="register.php">
+            <input type="text" id="username" placeholder="Enter Username" class="fname" name="username" required>
+            <input type="email" id="email" placeholder="Enter Email" name="email" class="email" required min="" max="120">
+
+                <input type="password" class="pass" id="password" placeholder="Enter Password"  name="password" required min="6" max="15">
+                <button type="submit" name="signup" class="register-btn">Register</button>
+
+        </form>
+        <a href="index.html" class="back"> Back to home</a>
+     <br>   <a href="signin.html" class="sign">Already have an acct?, sign in</a>
+    </div>
+    
+    <script>
+        const registrationForm = document.getElementById('registrationForm');
+        const usernameInput = document.getElementById('username');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+
+        registrationForm.addEventListener('submit', function(event) {
+            if (!usernameInput.value.trim()) {
+                alert('Please enter a username.');
+                event.preventDefault(); // Prevent form submission
+                return;
+            }
+
+            if (!emailInput.value.trim()) {
+                alert('Please enter an email address.');
+                event.preventDefault(); // Prevent form submission
+                return;
+            }
+
+            if (!passwordInput.value.trim()) {
+                alert('Please enter a password.');
+                event.preventDefault(); // Prevent form submission
+                return;
+            }
+
+            // If all validations pass, the form will submit normally
+            // You can add more complex validation here if needed
+        });
+
+        // You might want to handle the "registration successful" message
+        // more dynamically using JavaScript and potentially an AJAX request
+        // in a real-world application. For now, the PHP echo will handle it.
+    </script>
+</body>
+</html>
