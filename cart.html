@@ -20,10 +20,26 @@
             align-items: center;
             border-bottom: 1px solid #eee;
             padding: 10px 0;
+            justify-content: space-between;
+        }
+
+        #cart-items li .item-info {
+            display: flex;
+            align-items: center;
         }
 
         #cart-items li img {
             margin-right: 10px;
+        }
+
+        .remove-button {
+            background: none;
+            border: none;
+            color: red;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1em;
+            margin-left: 10px;
         }
 
         #cart-total {
@@ -32,7 +48,7 @@
         }
 
         #checkout-button {
-            background-color: #007bff;
+            background-color: #4d3601;
             color: white;
             padding: 10px 20px;
             border: none;
@@ -57,7 +73,7 @@
             <input class="srch" type="search" placeholder="Search your favourite....">
             <a href="rings.html">RINGS</a>
             <a href="watches.html">WATCHES</a>
-            <a href="dashboard.php">BACK TO DASHBOARD</a>
+            <a href="index.html">HOME</a>
         </div>
     </header>
     <div id="cart-container">
@@ -76,18 +92,35 @@
 
         let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
 
+        function removeItem(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('shoppingCart', JSON.stringify(cart));
+            updateCartDisplay();
+        }
+
         function updateCartDisplay() {
             cartItemsList.innerHTML = '';
             let total = 0;
 
-            cart.forEach(item => {
+            cart.forEach((item, index) => {
                 const listItem = document.createElement('li');
                 listItem.innerHTML = `
-                    <img src="${item.image}" alt="${item.name}" width="50">
-                    ${item.name} - ₦${item.price.toLocaleString()} x ${item.quantity} = ₦${(item.price * item.quantity).toLocaleString()}
+                    <div class="item-info">
+                        <img src="${item.image}" alt="${item.name}" width="50">
+                        <span>${item.name} - ₦${item.price.toLocaleString()} x ${item.quantity} = ₦${(item.price * item.quantity).toLocaleString()}</span>
+                    </div>
+                    <button class="remove-button" data-index="${index}">Remove</button>
                 `;
                 cartItemsList.appendChild(listItem);
                 total += item.price * item.quantity;
+            });
+
+            const removeButtons = document.querySelectorAll('.remove-button');
+            removeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const indexToRemove = parseInt(this.dataset.index);
+                    removeItem(indexToRemove);
+                });
             });
 
             cartTotalElement.textContent = `₦${total.toLocaleString()}`;
